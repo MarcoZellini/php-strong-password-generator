@@ -18,56 +18,22 @@
 
 -->
 
-<?php
-include_once __DIR__ . '/functions.php';
+<?php include_once __DIR__ . '/partials/head.php'; ?>
 
-$password = null;
+<main class="py-4" id="app_main">
+    <div class="container">
+        <h1 class="text-center mb-3"> Strong Password Generator</h1>
+        <form action="./passwordGen.php" class="py-3">
+            <label for="pws_length" class="py-3">Insert a length between 8 and 32 to generate your new Password</label>
+            <div class="input-group">
+                <input class="form-control" type="number" name="pwd_length" id="pwd_length_input" placeholder="Insert a number.." <?= isset($_GET['pwd_length']) ? 'value="' . $_GET['pwd_length'] . '"' : '' ?> min="8" max="32" required>
+                <button class="btn btn-primary" type="submit">Genera</button>
+            </div>
+        </form>
+        <!-- /form -->
+    </div>
+    <!-- /.container -->
+</main>
+<!-- /#app_main -->
 
-if (isset($_GET['pwd_length'])) {
-    $password = passwordGenerator($_GET['pwd_length']);
-}
-
-?>
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Password Gen</title>
-
-    <!-- Bootstrap CSS v5.2.1 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-
-</head>
-
-<body class="bg-dark text-white">
-    <main class="py-4" id="app_main">
-        <div class="container">
-            <h1 class="text-center mb-3"> Strong Password Generator</h1>
-            <form class="py-3">
-                <label for="pws_length" class="py-3">Insert a length between 8 and 16 to generate your new Password</label>
-                <div class="input-group">
-                    <input class="form-control" type="number" name="pwd_length" id="pwd_length_input" placeholder="Insert a number.." <?= isset($_GET['pwd_length']) ? 'value="' . $_GET['pwd_length'] . '"' : '' ?> min="8" max="32">
-                    <button class="btn btn-primary" type="submit">Genera</button>
-                </div>
-            </form>
-            <!-- /form -->
-
-            <?php if (isset($password)) : ?>
-
-                <div class="result text-center">
-                    <h2>Your new password is:</h2>
-                    <h3 class="text-danger fw-bold py-3"><?= $password ?></h3>
-                </div>
-
-            <?php endif; ?>
-
-        </div>
-        <!-- /.container -->
-    </main>
-    <!-- /#app_main -->
-</body>
-
-</html>
+<?php include_once __DIR__ . '/partials/footer.php'; ?>
