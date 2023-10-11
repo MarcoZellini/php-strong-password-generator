@@ -52,15 +52,15 @@
 
                     <div class="checkbox">
                         <span>Lettere</span>
-                        <input type="checkbox" name="letters" id="letters_checkbox">
+                        <input type="checkbox" name="letters" id="letters_checkbox" value="1">
                     </div>
                     <div class="checkbox">
                         <span>Numbers</span>
-                        <input type="checkbox" name="numbers" id="numbers_checkbox">
+                        <input type="checkbox" name="numbers" id="numbers_checkbox" value="1">
                     </div>
                     <div class="checkbox">
                         <span>Symbols</span>
-                        <input type="checkbox" name="symbols" id="symbols_checkbox">
+                        <input type="checkbox" name="symbols" id="symbols_checkbox" value="1">
                     </div>
 
                 </div>
