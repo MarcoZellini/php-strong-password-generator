@@ -23,12 +23,54 @@
 <main class="py-4" id="app_main">
     <div class="container">
         <h1 class="text-center mb-3"> Strong Password Generator</h1>
-        <form action="./passwordGen.php" class="py-3">
-            <label for="pws_length" class="py-3">Insert a length between 8 and 32 to generate your new Password</label>
-            <div class="input-group">
+        <form action="./passwordGen.php" class="bg-dark bg-gradient rounded-3 p-3">
+
+            <label for="pws_length" class="px-4">Insert a length between 8 and 32 to generate your new Password</label>
+            <div class="input-group p-4">
                 <input class="form-control" type="number" name="pwd_length" id="pwd_length_input" placeholder="Insert a number.." <?= isset($_GET['pwd_length']) ? 'value="' . $_GET['pwd_length'] . '"' : '' ?> min="8" max="32" required>
-                <button class="btn btn-primary" type="submit">Genera</button>
             </div>
+            <!-- /.input-group -->
+
+            <div class="input-group d-flex justify-content-between p-4">
+                <label for="">Allow repetitions: </label>
+                <div class="radio_inputs d-flex flex-column">
+                    <div class="radio">
+                        <span>Yes</span>
+                        <input type="radio" name="repetitions" id="repetitions_true" value="1" checked>
+                    </div>
+                    <div class="radio">
+                        <span>No</span>
+                        <input type="radio" name="repetitions" id="repetitions_false" value="0">
+                    </div>
+                </div>
+            </div>
+            <!-- /.input-group -->
+
+            <div class="input-group d-flex justify-content-end p-4">
+
+                <div class="checkbox_inputs d-flex flex-column text-end">
+
+                    <div class="checkbox">
+                        <span>Lettere</span>
+                        <input type="checkbox" name="letters" id="letters_checkbox">
+                    </div>
+                    <div class="checkbox">
+                        <span>Numbers</span>
+                        <input type="checkbox" name="numbers" id="numbers_checkbox">
+                    </div>
+                    <div class="checkbox">
+                        <span>Symbols</span>
+                        <input type="checkbox" name="symbols" id="symbols_checkbox">
+                    </div>
+
+                </div>
+                <!-- /.checkbox_inputs -->
+
+            </div>
+            <!-- /.input-group -->
+
+            <a href="index.php" class="btn btn-danger ms-4 mb-4" type="submit">Annulla</a>
+            <button class="btn btn-primary ms-4 mb-4" type="submit">Genera</button>
         </form>
         <!-- /form -->
     </div>

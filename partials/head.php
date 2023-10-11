@@ -11,4 +11,4 @@
 
 </head>
 
-<body class="bg-dark text-white">
+<body class="bg-danger text-white">
