@@ -19,23 +19,12 @@
 -->
 
 <?php
+include_once __DIR__ . '/functions.php';
 
 $password = null;
 
 if (isset($_GET['pwd_length'])) {
     $password = passwordGenerator($_GET['pwd_length']);
-}
-
-function passwordGenerator(int $length)
-{
-    $chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()-_=+[]{}/\|.:,;\'"`~<>^';
-    $password = '';
-
-    for ($i = 0; $i < $length; $i++) {
-        $password .= $chars[rand(0, count(str_split($chars, 1)))];
-    }
-
-    return $password;
 }
 
 ?>
@@ -60,7 +49,7 @@ function passwordGenerator(int $length)
             <form class="py-3">
                 <label for="pws_length" class="py-3">Insert a length between 8 and 16 to generate your new Password</label>
                 <div class="input-group">
-                    <input class="form-control" type="number" name="pwd_length" id="pwd_length_input" placeholder="Insert a number.." <?= isset($_GET['pwd_length']) ? 'value="' . $_GET['pwd_length'] . '"' : '' ?> min="8" max="16">
+                    <input class="form-control" type="number" name="pwd_length" id="pwd_length_input" placeholder="Insert a number.." <?= isset($_GET['pwd_length']) ? 'value="' . $_GET['pwd_length'] . '"' : '' ?> min="8" max="32">
                     <button class="btn btn-primary" type="submit">Genera</button>
                 </div>
             </form>
